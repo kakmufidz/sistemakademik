@@ -1,0 +1,6 @@
+public/photo/
+writable/uploads/
+writable/cache/
+writable/logs/
+writable/debugbar/
+writable/session
