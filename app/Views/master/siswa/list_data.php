@@ -15,7 +15,7 @@
                 <!--begin::Action-->
                 <!--end::Action-->
                 <div class="text-end align-self-center">
-                    <a href="javascript:;" class="btn btn-sm btn-primary " data-bs-toggle="modal" data-bs-target="#modaltambahproduksi"><i class="fas fa-plus fs-4 me-2"></i>Tambah <?= $page_title ?></a>
+                    <a href="<?= base_url() ?>biodata/tambah_data?act=siswa" class="btn btn-sm btn-primary"><i class="fas fa-plus fs-4 me-2"></i>Tambah <?= $page_title ?></a>
                     <button class="btn btn-sm btn-bg-light btn-active-color-primary ms-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
                         <!--begin::Svg Icon | path: assets/media/icons/duotune/arrows/arr091.svg-->
                         <span class="svg-icon svg-icon-muted">

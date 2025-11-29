@@ -66,6 +66,23 @@ class Biodata extends BaseController
     return view('master/guru/list_data', $data);
   }
 
+  public function tambah_data()
+  {
+    // Cek session
+    if ($this->cek_session() !== true) {
+      return $this->cek_session(); // Menghentikan eksekusi dan melakukan redirect
+    }
+    $musers = new Users();
+    $biodata = $musers->biodata();
+    $act = $this->request->getGet("act");
+    $view = 'master/' . $act . '/tambah_data';
+    $data = [
+      'page_title' => "Tambah Data " . ucfirst($act),
+      'biodata' => $biodata,
+    ];
+    return view($view, $data);
+  }
+
 
   public function detail()
   {
