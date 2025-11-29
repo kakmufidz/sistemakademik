@@ -15,39 +15,52 @@ class Auth extends BaseController
 
     public function login()
     {
-        $musers = new Users();
-        $username = $this->request->getPost("username");
-        $password = $this->request->getPost("password");
-        $ref = $this->request->getPost("ref");
+        // Ambil request input dengan cara yang aman
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
+        $ref = $this->request->getPost('ref');
 
-        $dataUser = $musers->userlogin($username);
+        $data = ['login' => false];
+        $userdata = $this->db->table("users")->select("*")->where(["username" => $username])->get()->getRowArray();
 
-        if (!empty($dataUser)) {
-            // Verifikasi password dengan password_hash
-            if ($password == $dataUser['password']) {
-                // Set session
+        if (!empty($userdata)) {
+            // Verifikasi password
+            if (password_verify($password, $userdata['password'])) {
+                // buat token
+                $token = bin2hex(random_bytes(32));
+
+                // Simpan ke sesi
                 session()->set([
-                    'user'      => $dataUser['username'],
-                    'level'     => $dataUser['level'],
+                    'user' => $userdata['username'],
+                    'level' => $userdata['level'],
                     'logged_in' => true
                 ]);
 
                 $data['login'] = true;
+                $data['token'] = $token; // kirim token ke client
 
-                // Cek jika ada ref yang dikirim
-                if ($ref) {
-                    $data['ref'] = base64_decode($ref);
+                // Proses referensi jika ada
+                if (!empty($ref)) {
+                    $data['redirect'] = base64_decode($ref);
+                } else {
+                    // Sesuaikan redirect berdasarkan level user
+                    $data['redirect'] = base_url('dashboard');
+                    // if ($userdata['level'] === 'superadmin') {
+                    // } else if ($userdata['level'] === 'guru') {
+                    //     $data['redirect'] = base_url('dashboard');
+                    // } else if ($userdata['level'] === 'siswa') {
+                    //     $data['redirect'] = base_url('dashboard');
+                    // }
                 }
             } else {
-                $data['error'] = 'NUK atau Password salah';
+                $data['error'] = 'Username atau Password salah';
             }
         } else {
-            $data['error'] = 'NUK atau Password salah';
+            $data['error'] = 'Username atau Password salah';
         }
 
         return $this->response->setJSON($data);
     }
-
 
     public function logout()
     {

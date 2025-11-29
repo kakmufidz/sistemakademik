@@ -129,7 +129,7 @@
 							<label class="form-check form-check-custom form-check-solid form-check-inline mb-5">
 								<input class="form-check-input" type="checkbox" name="toc" value="1" />
 								<span class="form-check-label fw-bold text-gray-400">Ingat Saya.
-									<a href="#" class="link-primary ms-1">Lupa Password?</a>
+									<!-- <a href="#" class="link-primary ms-1">Lupa Password?</a> -->
 								</span>
 							</label>
 						</div>

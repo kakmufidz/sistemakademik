@@ -21,35 +21,10 @@ class Dashboard extends BaseController
             return $this->cek_session(); // Menghentikan eksekusi dan melakukan redirect
         }
         $musers = new Users();
-        $mkaryawan = new Karyawan();
         $biodata = $musers->biodata();
-        $kantor = ["Workshop", "Onsite"];
-        $karyawan = [];
-        foreach ($kantor as $sumber) {
-            $allkaryawan = $mkaryawan->select("*")->where(["kantor" => $sumber, "deleted_at" => null])->countAllResults();
-            $resign = $mkaryawan->select("*")->where(["kantor" => $sumber, "user_status" => 0, "deleted_at" => null])->countAllResults();
-            $tetap = $mkaryawan->select("*")->where(["kantor" => $sumber, "user_status" => 1, "deleted_at" => null])->countAllResults();
-            $kontrak = $mkaryawan->select("*")->where(["kantor" => $sumber, "user_status" => 2, "deleted_at" => null])->countAllResults();
-            $training = $mkaryawan->select("*")->where(["kantor" => $sumber, "user_status" => 3, "deleted_at" => null])->countAllResults();
-            $aktif = $tetap + $kontrak + $training;
-            $karyawan[strtolower($sumber)] = [
-                "all" => $allkaryawan,
-                "tetap" => $tetap,
-                "resign" => $resign,
-                "kontrak" => $kontrak,
-                "training" => $training,
-                "aktif" => $aktif
-            ];
-        }
         $data = [
             'page_title' => "Dashboard",
             'biodata' => $biodata,
-            'karyawan' => $karyawan,
-            'tetap' => $tetap,
-            'resign' => $resign,
-            'kontrak' => $kontrak,
-            'training' => $training,
-            'aktif' => $aktif
         ];
         return view('dashboard/dashboard', $data);
     }

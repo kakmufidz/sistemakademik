@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use CodeIgniter\HTTP\Request;
 use CodeIgniter\Model;
 
 class Users extends Model
@@ -42,6 +43,8 @@ class Users extends Model
     function __construct()
     {
         $this->db = db_connect();
+        $this->session = session();
+        // $this->request = service('request');
     }
 
     public function userlogin($nuk)
@@ -61,45 +64,24 @@ class Users extends Model
 
     public function biodata()
     {
-        $level = $_SESSION['level'];
-        $user = $_SESSION['user'];
-        if ($user == "superdede") {
+        $level = $this->session->get('level');
+        $username = $this->session->get('username');
+        if ($level == "admin") {
             $biodata = [
-                "user_id" => null,
-                "nuk" => $level,
-                "user_nama_depan" => "Super",
-                "user_nama_belakang" => "Admin",
-                "id_departemen" => "10",
-                "nama_departemen" => "Superadmin",
-                "departemen" => "Superadmin",
-                "jk" => "1",
-                "no_telp" => null,
-                "photo" => "avatar-man.svg",
+                "id" => null,
+                "username" => $level,
+                "nama" => "Admin",
+                "photo" => "admin.svg",
                 "user_status" => "1",
-                "reg_date" => "1988-01-01",
-                "resign_date" => null,
             ];
-        } elseif ($user == "direksi") {
-            $biodata = [
-                "user_id" => null,
-                "nuk" => $level,
-                "user_nama_depan" => "Direksi",
-                "user_nama_belakang" => "",
-                "id_departemen" => "7",
-                "nama_departemen" => "Direksi",
-                "departemen" => "Direksi",
-                "jk" => "1",
-                "no_telp" => null,
-                "photo" => "avatar-man.svg",
-                "user_status" => "1",
-                "reg_date" => "1988-01-01",
-                "resign_date" => null
-            ];
+        } elseif ($level == "guru") {
+            $biodata = $this->db->table("teachers")
+                ->select("*")
+                ->where(["username" => $username])->get()->getRowArray();
         } else {
-            $biodata = $this->db->table("karyawan k")
-                ->select("k.*,d.nama as nama_department")
-                ->join("department d", "d.id=k.id_department")
-                ->where(["username" => $user])->get()->getRowArray();
+            $biodata = $this->db->table("students")
+                ->select("*")
+                ->where(["username" => $username])->get()->getRowArray();
         }
         return $biodata;
     }
