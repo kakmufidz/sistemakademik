@@ -12,7 +12,7 @@ class Home extends BaseController
     public function index()
     {
         if ($this->session->get('logged_in') == true)  return redirect()->to(base_url('dashboard'));
-        $data = ['page_title' => "HRIS Harapan Jaya"];
+        $data = ['page_title' => "Sistem Akademik Sekolah"];
         return view('login', $data);
     }
 }

@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-<!--
-Author: Keenthemes
-Product Name: Metronic - Bootstrap 5 HTML, VueJS, React, Angular & Laravel Admin Dashboard Theme
-Purchase: https://1.envato.market/EA4JP
-Website: http://www.keenthemes.com
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
--->
 <html lang="en">
 <!--begin::Head-->
 
@@ -17,123 +6,162 @@ License: For each use you must have a valid license purchased only from above li
 	<base href="">
 	<title><?= $page_title ?></title>
 	<meta charset="utf-8" />
-	<meta name="description" content="HRIS Harapan Jaya Goup" />
-	<meta name="keywords" content="HRIS, hrd Sistem, Informasi, Aplikasi, Website, Bengkel, Harapan Jaya" />
+	<meta name="description" content="Smart CRM PT. Harapan Jaya Anugrah." />
+	<meta name="keywords" content="CRM, Customer Relation Manager, Sistem, Informasi, Aplikasi, Website, Bengkel, Harapan Jaya" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content="<?= $page_title ?>" />
 	<meta property="og:url" content="https://hjgroup.co.id/" />
-	<meta property="og:site_name" content="PT. Harapan Jaya Globalindo| Bengkel Harapan Jaya" />
-	<meta property="og:image" content="<?= base_url() ?>assets/media/logos/hjglogoov.jpg" />
-	<link rel="manifest" href="/manifest.json">
+	<meta property="og:site_name" content="Harapan Jaya | Bengkel Harapan Jaya" />
 	<link rel="canonical" href="https://hjgroup.co.id/" />
-	<link rel="shortcut icon" href="<?= base_url() ?>assets/media/logos/hjglogo-150x150.png" />
+	<link rel="shortcut icon" href="<?= base_url() ?>assets/media/logos/android-chrome-512x512.png" />
 	<!--begin::Fonts-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 	<!--end::Fonts-->
 	<!--begin::Global Stylesheets Bundle(used by all pages)-->
 	<link href="<?= base_url() ?>assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-	<link href="<?= base_url() ?>assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="<?= base_url() ?>assets/css/style.bundle.css?v=<?= time() ?>" rel="stylesheet" />
+	<script src="<?= base_url() ?>assets/js/scripts.bundle.js?v=<?= time() ?>"></script>
+
 	<!--end::Global Stylesheets Bundle-->
-	<style>
-		html,
-		body {
-			margin: 0;
-			padding: 0;
-			/* overflow: hidden; */
-			/* opsional kalau emang mau strict tidak bisa scroll */
-			height: 100%;
-		}
-	</style>
+
+	<link rel="manifest" href="<?= base_url() ?>manifest.json">
+	<link rel="apple-touch-icon" href="<?= base_url() ?>pwa/apple-touch-icon.png">
+	<meta name="theme-color" content="#f1416c">
+
 </head>
 <!--end::Head-->
 <!--begin::Body-->
 
 <body class="bg-body">
 	<!--begin::Main-->
+	<div class="d-flex flex-column flex-root">
+		<!--begin::Authentication - Signup Free Trial-->
+		<div class="d-flex flex-column flex-xl-row flex-column-fluid">
+			<!--begin::Aside-->
+			<div class="d-flex flex-column flex-lg-row-fluid">
+				<!--begin::Wrapper-->
+				<div class="d-flex flex-row-fluid flex-center p-10">
+					<!--begin::Content-->
+					<div class="d-flex flex-column flex-center text-center">
+						<!--begin::Title-->
+						<h2 class="text-dark fs-1 mb-3">Selamat datang di</h2>
+						<h2 class="text-dark fs-1 mb-3">Sistem Informasi Akademik Sekolah</h2>
+						<h1 class="text-dark fs-2hx mb-5">(SISKA)</h1>
+						<!--end::Title-->
+						<!--begin::Logo-->
+						<a href="<?= base_url() ?>" class="mb-5">
+							<img alt="Logo" src="<?= base_url() ?>assets/media/logos/logo-siska.png" class="w-200px w-lg-300px" />
+						</a>
+						<!--end::Logo-->
 
-	<div class="d-flex justify-content-center align-items-center vh-100 position-relative"
-		style="background-image: url(<?= base_url() ?>assets/media/images/hjdrone.webp);  
-            background-attachment: fixed; 
-            background-size: cover; 
-            background-position: center center;">
+						<!--begin::Description-->
+						<div class="fw-bold fs-4 text-gray-400">
+							Terima kasih atas kontribusi Anda yang berharga.<br>
+							Keberhasilan kita semua bergantung pada kerja keras dan dedikasi Anda.
+						</div>
+						<!--end::Description-->
 
-		<!-- Overlay hitam transparan -->
-		<div style="position: absolute; top:0; bottom:0; left:0; right:0; background: rgba(0,0,0,0.5);"></div>
+						<!--begin::Illustration (Dipindah kesini agar satu grup vertikal)-->
 
-		<!-- Konten Form -->
-		<div class="row p-9 w-100" style="max-width: 600px; z-index: 1;">
-			<div class="col-12">
-				<div class="d-flex flex-center p-15 shadow bg-body rounded w-100">
+					</div>
+					<!--end::Content-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--begin::Aside-->
+			<!--begin::Content-->
+			<div class="flex-row-fluid d-flex flex-center justfiy-content-xl-first p-10">
+				<!--begin::Wrapper-->
+				<div class="d-flex flex-center bg-body p-15 shadow rounded w-100 w-md-550px mx-auto ms-xl-20">
 					<!--begin::Form-->
 					<form class="form" id="formLogin">
 						<?php if (isset($_GET["ref"])): ?>
 							<input type="hidden" name="ref" value="<?= $_GET["ref"] ?>" />
 						<?php endif; ?>
-						<!-- Heading -->
-						<div class="text-center mb-5">
-							<div class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-50px min-h-xl-100px mb-xl-3" style="background-image: url(<?= base_url() ?>assets/media/logos/logo-hjg.webp)"></div>
-							<h1 class="text-dark mb-3">Masuk HRIS</h1>
-							<div class="text-gray-400 fw-bold fs-4">Masuk menggunakan NUK dan Password</div>
+						<!--begin::Heading-->
+						<div class="text-center mb-10">
+							<!--begin::Title-->
+							<h1 class="text-dark mb-3">Masuk</h1>
+							<!--end::Title-->
+							<!--begin::Link-->
+							<div class="text-gray-400 fs-5">Masuk menggunakan Username dan Password</div>
+							<!--end::Link-->
 						</div>
-
-						<!-- Input group -->
-						<div class="fv-row mb-5">
-							<label for="nuk" class="form-label fw-bolder text-dark fs-6">NUK</label>
-							<input class="form-control form-control-solid" type="text" name="nuk" autocomplete="off" />
+						<!--begin::Heading-->
+						<!--begin::Input group-->
+						<div class="fv-row mb-10">
+							<label for="username" class="form-label fw-bolder text-dark fs-6">Username</label>
+							<input class="form-control form-control-solid" type="text" name="username" autocomplete="off" />
 						</div>
-
+						<!--end::Input group-->
+						<!--begin::Input group-->
 						<div class="mb-7 fv-row" data-kt-password-meter="true">
+							<!--begin::Wrapper-->
 							<div class="mb-1">
+								<!--begin::Label-->
 								<label class="form-label fw-bolder text-dark fs-6">Password</label>
+								<!--end::Label-->
+								<!--begin::Input wrapper-->
 								<div class="position-relative mb-3">
-									<input class="form-control form-control-solid" type="password" name="password" autocomplete="off" />
+									<input class="form-control form-control-solid" type="password" placeholder="" name="password" autocomplete="off" />
 									<span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
 										<i class="bi bi-eye-slash fs-2"></i>
 										<i class="bi bi-eye fs-2 d-none"></i>
 									</span>
 								</div>
+								<!--end::Input wrapper-->
+								<!--begin::Meter-->
 								<div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
 									<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
 									<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
 									<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
 									<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
 								</div>
+								<!--end::Meter-->
 							</div>
+							<!--end::Wrapper-->
 						</div>
-						<!-- Remember Me -->
+						<!--end::Input group=-->
+						<!--begin::Row-->
 						<div class="fv-row">
 							<label class="form-check form-check-custom form-check-solid form-check-inline mb-5">
 								<input class="form-check-input" type="checkbox" name="toc" value="1" />
-								<span class="form-check-label fw-bold text-gray-700">Ingat Saya.
-									<a href="#" class="link-primary ms-1">Lupa Password</a>
+								<span class="form-check-label fw-bold text-gray-400">Ingat Saya.
+									<a href="#" class="link-primary ms-1">Lupa Password?</a>
 								</span>
 							</label>
 						</div>
-						<!-- Error Message -->
+						<!--end::Row-->
 						<div class="fv-plugins-message-container invalid-feedback" id="error-login"></div>
-						<!-- Submit Button -->
-						<div class="text-center pb-lg-0 pb-8">
+						<!--begin::Row-->
+						<div class="text-center pb-lg-0 pb-8 mt-10">
 							<button type="submit" id="btnLogin" class="btn btn-lg btn-danger fw-bolder">
 								<span class="indicator-label">Masuk</span>
 								<span class="indicator-progress">Mohon tunggu...
 									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 							</button>
 						</div>
+						<!--end::Row-->
 					</form>
 					<!--end::Form-->
 				</div>
 				<!--end::Wrapper-->
 			</div>
+			<!--end::Right Content-->
 		</div>
+		<!--end::Authentication - Signup Free Trial-->
 	</div>
-
 	<!--end::Main-->
 	<!--begin::Javascript-->
 	<!--begin::Global Javascript Bundle(used by all pages)-->
 	<script src="<?= base_url() ?>assets/plugins/global/plugins.bundle.js"></script>
-	<script src="<?= base_url() ?>assets/js/scripts.bundle.js"></script>
+	<script src="<?= base_url() ?>assets/js/indexeddb-helper.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+  <script>
+    eruda.init();
+  </script> -->
 	<!--end::Global Javascript Bundle-->
 	<!--end::Javascript-->
 
@@ -149,7 +177,32 @@ License: For each use you must have a valid license purchased only from above li
 			});
 		}
 
-		$(document).ready(function() {
+		// fungsi cek user dari IndexedDB
+		async function checkCachedUser() {
+			const cached = await getAllFromDB("user");
+			const mainUser = cached.find(item => item.id === "main");
+			if (mainUser && mainUser.result) {
+				console.log("User available (cached)");
+				window.location.href = "<?= base_url("dashboard") ?>";
+			} else {
+				console.log("User unavailable (cached)");
+			}
+		}
+
+		$(document).ready(async function() {
+			// kalau OFFLINE
+			if (!navigator.onLine) {
+				console.log("Offline mode detected");
+				await checkCachedUser();
+			} else if (navigator.connection && ["slow-2g", "2g", "3g"].includes(navigator.connection.effectiveType)) {
+				// kalau ONLINE tapi lambat
+				console.log("Slow connection detected:", navigator.connection.effectiveType);
+				await checkCachedUser();
+			}
+
+			// event listener kalau status online/offline berubah
+			window.addEventListener("offline", checkCachedUser);
+
 			$('#formLogin').on('submit', function(evt) {
 				evt.preventDefault();
 				$("#error-login").hide();
@@ -163,24 +216,25 @@ License: For each use you must have a valid license purchased only from above li
 					processData: false,
 					contentType: false,
 					dataType: 'JSON',
-					success: function(result) {
+					success: async function(result) {
+						$('#btnLogin .indicator-label').show();
+						$('#btnLogin .indicator-progress').hide();
 						if (result.error) {
-							$("#error-login").html(result.error);
-							$("#error-login").show();
-							$('#btnLogin .indicator-label').show();
-							$('#btnLogin .indicator-progress').hide();
+							$("#error-login").html(result.error).show();
 						} else {
-							$('#btnLogin .indicator-label').show();
-							$('#btnLogin .indicator-progress').hide();
-							if (result.ref) {
-								window.location.href = result.ref;
-							} else {
-								window.location.href = "<?= base_url() ?>dashboard";
-							}
+							// Simpan user ke IndexedDB
+							await putDB("user", {
+								id: "main",
+								result
+							});
+							// Redirect sesuai server
+							window.location.href = result.redirect;
 						}
 					},
 					error: function(result) {
-						// alert(result);
+						$('#btnLogin .indicator-label').show();
+						$('#btnLogin .indicator-progress').hide();
+						alert("Koneksi tidak stabil, harap periksa internet Anda.");
 					}
 				});
 			});

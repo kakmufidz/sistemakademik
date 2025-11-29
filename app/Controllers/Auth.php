@@ -16,18 +16,18 @@ class Auth extends BaseController
     public function login()
     {
         $musers = new Users();
-        $nuk = $this->request->getPost("nuk");
+        $username = $this->request->getPost("username");
         $password = $this->request->getPost("password");
         $ref = $this->request->getPost("ref");
 
-        $dataUser = $musers->userlogin($nuk);
+        $dataUser = $musers->userlogin($username);
 
         if (!empty($dataUser)) {
             // Verifikasi password dengan password_hash
             if ($password == $dataUser['password']) {
                 // Set session
                 session()->set([
-                    'user'      => $dataUser['usernuk'],
+                    'user'      => $dataUser['username'],
                     'level'     => $dataUser['level'],
                     'logged_in' => true
                 ]);
@@ -59,10 +59,9 @@ class Auth extends BaseController
     // public function tambah()
     // {
     //     $input = array(
-    //         'username' => "0000-000",
-    //         'password' => password_hash("12345", PASSWORD_BCRYPT),
-    //         'level' => "karyawan",
-    //         'id_aol_hja' => 151,
+    //         'username' => "superadmin",
+    //         'password' => password_hash("superadmin123", PASSWORD_BCRYPT),
+    //         'level' => "superadmin",
     //     );
     //     $muser = new Users();
     //     $data['insert'] = $muser->save($input);

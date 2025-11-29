@@ -46,14 +46,14 @@ class Users extends Model
 
     public function userlogin($nuk)
     {
-        $userdata = $this->select("*")->where(["usernuk" => $nuk])->get()->getRowArray();
+        $userdata = $this->select("*")->where(["username" => $nuk])->get()->getRowArray();
         return $userdata;
     }
 
     public function user($nuk)
     {
-        $userdata = $this->select("*")->where(["usernuk" => $nuk])->get()->getRowArray();
-        $biodata = $this->db->table("karyawan")->select("*")->where(["usernuk" => $nuk])->get()->getRowArray();
+        $userdata = $this->select("*")->where(["username" => $nuk])->get()->getRowArray();
+        $biodata = $this->db->table("karyawan")->select("*")->where(["username" => $nuk])->get()->getRowArray();
         $biodata["password"] = $userdata["password"];
         $biodata["level"] = $userdata["level"];
         return $biodata;
@@ -99,7 +99,7 @@ class Users extends Model
             $biodata = $this->db->table("karyawan k")
                 ->select("k.*,d.nama as nama_department")
                 ->join("department d", "d.id=k.id_department")
-                ->where(["usernuk" => $user])->get()->getRowArray();
+                ->where(["username" => $user])->get()->getRowArray();
         }
         return $biodata;
     }
