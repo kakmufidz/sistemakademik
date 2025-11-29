@@ -23,8 +23,8 @@ $level = $_SESSION['level'];
       <div class="aside-user-info flex-row-fluid flex-wrap ms-5">
         <div class="d-flex">
           <div class="flex-grow-1 me-2">
-            <a href="javascript:;" class="text-white text-hover-primary fs-6 fw-bold"><?= $biodata['user_nama_depan'] . " " . $biodata['user_nama_belakang'] ?></a>
-            <span class="text-gray-600 fw-bold d-block fs-8 mb-1"><?= $biodata['jabatan'] ?></span>
+            <a href="javascript:;" class="text-white text-hover-primary fs-6 fw-bold"><?= $biodata['nama'] ?></a>
+            <span class="text-gray-600 fw-bold d-block fs-8 mb-1"><?= $biodata['user_status'] ?></span>
             <div class="d-flex align-items-center text-success fs-9">
               <span class="bullet bullet-dot bg-success me-1"></span>online
             </div>
@@ -74,7 +74,7 @@ $level = $_SESSION['level'];
       <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" data-kt-menu="true">
         <div class="menu-item">
           <div class="menu-content pb-2">
-            <span class="menu-section text-muted text-uppercase fs-8 ls-1">Dashboard</span>
+            <span class="menu-section text-muted text-uppercase fs-8 ls-1">DASHBOARD</span>
           </div>
         </div>
 
@@ -93,18 +93,18 @@ $level = $_SESSION['level'];
               </span>
               <!--end::Svg Icon-->
             </span>
-            <span class="menu-title">Dashboard</span>
+            <span class="menu-title">DASHBOARD</span>
           </a>
         </div>
 
         <!-- HRD - Karyawan -->
         <div class="menu-item">
           <div class="menu-content pb-2">
-            <span class="menu-section text-muted text-uppercase fs-8 ls-1">HRD & Umum</span>
+            <span class="menu-section text-muted text-uppercase fs-8 ls-1">MASTER DATA</span>
           </div>
         </div>
         <?php
-        $pageMaster = ["karyawan"];
+        $pageMaster = ["biodata"];
         ?>
         <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= (in_array($url[3], $pageMaster)) ? "here show" : "" ?>">
           <span class="menu-link">
@@ -116,45 +116,262 @@ $level = $_SESSION['level'];
                 </svg>
               </span>
             </span>
-            <span class="menu-title">Data Karyawan</span>
+            <span class="menu-title">BIODATA</span>
             <span class="menu-arrow"></span>
           </span>
-          <?php
-          $pageFour = ["workshop"];
-          $isWorkshop = false;
-          if ($url[3] == "karyawan" && isset($kantor) && $kantor == "workshop") {
-            $isWorkshop = true;
-          }
-          ?>
-          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "karyawan") && (in_array($url[4], $pageFour))) ? "menu-active-bg" : "" ?>">
-            <a class="menu-item menu-accordion <?= (($url[3] == "karyawan") && (in_array($url[4], $pageFour))) ? "here show" : "" ?>" href="<?= base_url() ?>karyawan/workshop">
-              <span class="menu-link <?= (($url[3] == "karyawan") && ((in_array($url[4], $pageFour)) || $isWorkshop)) ? "active bg-primary" : "" ?>">
+          <?php $pageFour = "admin"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
                 <span class="menu-bullet">
                   <span class="bullet bullet-dot"></span>
                 </span>
-                <span class="menu-title">Karyawan Workshop</span>
+                <span class="menu-title">DATA ADMIN</span>
               </span>
             </a>
           </div>
-          <?php
-          $pageFour = ["onsite"];
-          $isOnsite = false;
-          if ($url[3] == "karyawan" && isset($kantor) && $kantor == "onsite") {
-            $isOnsite = true;
-          }
-          ?>
-          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "karyawan") && (in_array($url[4], $pageFour))) ? "menu-active-bg" : "" ?>">
-            <a class="menu-item menu-accordion <?= (($url[3] == "karyawan") && (in_array($url[4], $pageFour))) ? "here show" : "" ?>" href="<?= base_url() ?>karyawan/onsite">
-              <span class="menu-link <?= (($url[3] == "karyawan") && ((in_array($url[4], $pageFour)) || $isOnsite)) ? "active bg-primary" : "" ?>">
+          <?php $pageFour = "akun"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
                 <span class="menu-bullet">
                   <span class="bullet bullet-dot"></span>
                 </span>
-                <span class="menu-title">Karyawan Onsite</span>
+                <span class="menu-title">DATA AKUN</span>
+              </span>
+            </a>
+          </div>
+          <?php $pageFour = "guru"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">DATA GURU</span>
+              </span>
+            </a>
+          </div>
+          <?php $pageFour = "siswa"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">DATA SISWA</span>
+              </span>
+            </a>
+          </div>
+          <?php $pageFour = "wali_siswa"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">DATA WALI SISWA</span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <?php
+        $pageMaster = ["administrasi"];
+        ?>
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= (in_array($url[3], $pageMaster)) ? "here show" : "" ?>">
+          <span class="menu-link">
+            <span class="menu-icon">
+              <span class="svg-icon svg-icon-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M20 14H18V10H20C20.6 10 21 10.4 21 11V13C21 13.6 20.6 14 20 14ZM21 19V17C21 16.4 20.6 16 20 16H18V20H20C20.6 20 21 19.6 21 19ZM21 7V5C21 4.4 20.6 4 20 4H18V8H20C20.6 8 21 7.6 21 7Z" fill="black" />
+                  <path opacity="0.3" d="M17 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H17C17.6 2 18 2.4 18 3V21C18 21.6 17.6 22 17 22ZM10 7C8.9 7 8 7.9 8 9C8 10.1 8.9 11 10 11C11.1 11 12 10.1 12 9C12 7.9 11.1 7 10 7ZM13.3 16C14 16 14.5 15.3 14.3 14.7C13.7 13.2 12 12 10.1 12C8.10001 12 6.49999 13.1 5.89999 14.7C5.59999 15.3 6.19999 16 7.39999 16H13.3Z" fill="black" />
+                </svg>
+              </span>
+            </span>
+            <span class="menu-title">ADMINISTRASI</span>
+            <span class="menu-arrow"></span>
+          </span>
+          <?php $pageFour = "admin"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">DATA SEKOLAH</span>
+              </span>
+            </a>
+          </div>
+          <?php $pageFour = "akun"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">DATA TAHUN PELAJARAN</span>
+              </span>
+            </a>
+          </div>
+          <?php $pageFour = "guru"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">DATA KELAS</span>
+              </span>
+            </a>
+          </div>
+          <?php $pageFour = "siswa"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">DATA MATA PELAJARAN</span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <?php
+        $pageMaster = ["penilaian"];
+        ?>
+        <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= (in_array($url[3], $pageMaster)) ? "here show" : "" ?>">
+          <span class="menu-link">
+            <span class="menu-icon">
+              <span class="svg-icon svg-icon-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M20 14H18V10H20C20.6 10 21 10.4 21 11V13C21 13.6 20.6 14 20 14ZM21 19V17C21 16.4 20.6 16 20 16H18V20H20C20.6 20 21 19.6 21 19ZM21 7V5C21 4.4 20.6 4 20 4H18V8H20C20.6 8 21 7.6 21 7Z" fill="black" />
+                  <path opacity="0.3" d="M17 22H3C2.4 22 2 21.6 2 21V3C2 2.4 2.4 2 3 2H17C17.6 2 18 2.4 18 3V21C18 21.6 17.6 22 17 22ZM10 7C8.9 7 8 7.9 8 9C8 10.1 8.9 11 10 11C11.1 11 12 10.1 12 9C12 7.9 11.1 7 10 7ZM13.3 16C14 16 14.5 15.3 14.3 14.7C13.7 13.2 12 12 10.1 12C8.10001 12 6.49999 13.1 5.89999 14.7C5.59999 15.3 6.19999 16 7.39999 16H13.3Z" fill="black" />
+                </svg>
+              </span>
+            </span>
+            <span class="menu-title">PENILAIAN</span>
+            <span class="menu-arrow"></span>
+          </span>
+          <?php $pageFour = "siswa"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">ABSENSI</span>
+              </span>
+            </a>
+          </div>
+          <?php $pageFour = "siswa"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">CATATAN</span>
+              </span>
+            </a>
+          </div>
+          <?php $pageFour = "siswa"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">EKSTRAKULIKULER</span>
+              </span>
+            </a>
+          </div>
+          <?php $pageFour = "akun"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">NILAI SOSIAL</span>
+              </span>
+            </a>
+          </div>
+          <?php $pageFour = "guru"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">NILAI SPIRITUAL</span>
+              </span>
+            </a>
+          </div>
+          <?php $pageFour = "admin"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">PEMBELAJARAN</span>
+              </span>
+            </a>
+          </div>
+          <?php $pageFour = "siswa"; ?>
+          <div class="menu-sub menu-sub-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "menu-active-bg" : "" ?>">
+            <a class="menu-item menu-accordion <?= (($url[3] == "biodata") && (in_array($url[4], [$pageFour]))) ? "here show" : "" ?>" href="<?= base_url("biodata/" . $pageFour) ?>">
+              <span class="menu-link <?= (($url[3] == "biodata") && ((in_array($url[4], [$pageFour])))) ? "active bg-primary" : "" ?>">
+                <span class="menu-bullet">
+                  <span class="bullet bullet-dot"></span>
+                </span>
+                <span class="menu-title">PRESTASI</span>
               </span>
             </a>
           </div>
         </div>
 
+        <div class="menu-item">
+          <div class="menu-content pb-2">
+            <span class="menu-section text-muted text-uppercase fs-8 ls-1">RAPORT</span>
+          </div>
+        </div>
+
+        <!-- RAPORT -->
+        <div class="menu-item">
+          <a class="menu-link <?= ($url[3] == "raport") ? "active" : "" ?>" href="<?= base_url("dashboard") ?>">
+            <span class="menu-icon">
+              <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+              <span class="svg-icon svg-icon-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <rect x="2" y="2" width="9" height="9" rx="2" fill="black" />
+                  <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="black" />
+                  <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="black" />
+                  <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="black" />
+                </svg>
+              </span>
+              <!--end::Svg Icon-->
+            </span>
+            <span class="menu-title">NILAI AKHIR</span>
+          </a>
+        </div>
+        <div class="menu-item">
+          <a class="menu-link <?= ($url[3] == "raport") ? "active" : "" ?>" href="<?= base_url("dashboard") ?>">
+            <span class="menu-icon">
+              <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+              <span class="svg-icon svg-icon-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <rect x="2" y="2" width="9" height="9" rx="2" fill="black" />
+                  <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="black" />
+                  <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="black" />
+                  <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="black" />
+                </svg>
+              </span>
+              <!--end::Svg Icon-->
+            </span>
+            <span class="menu-title">CETAK RAPORT</span>
+          </a>
+        </div>
 
         <?php if (in_array($_SESSION["level"], ["admin", "superadmin"])): ?>
           <!-- Pengaturan -->

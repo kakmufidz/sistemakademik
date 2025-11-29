@@ -70,6 +70,7 @@ class Users extends Model
             $biodata = [
                 "id" => null,
                 "username" => $level,
+                "jk" => 1,
                 "nama" => "Admin",
                 "photo" => "admin.svg",
                 "user_status" => "1",

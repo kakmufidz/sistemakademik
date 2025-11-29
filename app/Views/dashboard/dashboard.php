@@ -20,8 +20,8 @@
               </svg>
             </span>
             <!--end::Svg Icon-->
-            <div class="text-dark fw-bolder fs-2 mb-2 mt-5"><?= $karyawan["workshop"]["aktif"] + $karyawan["onsite"]["aktif"] ?></div>
-            <div class="fw-bold text-dark">Karyawan Aktif</div>
+            <div class="text-dark fw-bolder fs-2 mb-2 mt-5">0</div>
+            <div class="fw-bold text-dark">Guru Aktif</div>
           </div>
           <!--end::Body-->
         </a>
@@ -42,74 +42,8 @@
               </svg>
             </span>
             <!--end::Svg Icon-->
-            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5"><?= $karyawan["workshop"]["tetap"] + $karyawan["onsite"]["tetap"] ?></div>
-            <div class="fw-bold text-gray-100">Karyawan Tetap</div>
-          </div>
-          <!--end::Body-->
-        </a>
-        <!--end::Statistics Widget 5-->
-      </div>
-      <div class="col-xl-4">
-        <!--begin::Statistics Widget 5-->
-        <a href="#" class="card bg-dark hoverable card-xl-stretch mb-5 mb-xl-8">
-          <!--begin::Body-->
-          <div class="card-body">
-            <!--begin::Svg Icon | path: icons/duotune/arrows/arr070.svg-->
-            <span class="svg-icon svg-icon-gray-100 svg-icon-3x ms-n1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <rect x="8" y="9" width="3" height="10" rx="1.5" fill="black" />
-                <rect opacity="0.5" x="13" y="5" width="3" height="14" rx="1.5" fill="black" />
-                <rect x="18" y="11" width="3" height="8" rx="1.5" fill="black" />
-                <rect x="3" y="13" width="3" height="6" rx="1.5" fill="black" />
-              </svg>
-            </span>
-            <!--end::Svg Icon-->
-            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5"><?= $karyawan["workshop"]["kontrak"] + $karyawan["onsite"]["kontrak"] ?></div>
-            <div class="fw-bold text-gray-100">Karyawan Kontrak</div>
-          </div>
-          <!--end::Body-->
-        </a>
-        <!--end::Statistics Widget 5-->
-      </div>
-      <div class="col-xl-4">
-        <!--begin::Statistics Widget 5-->
-        <a href="#" class="card bg-info hoverable card-xl-stretch mb-5 mb-xl-8">
-          <!--begin::Body-->
-          <div class="card-body">
-            <!--begin::Svg Icon | path: icons/duotune/arrows/arr070.svg-->
-            <span class="svg-icon svg-icon-gray-100 svg-icon-3x ms-n1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <rect x="8" y="9" width="3" height="10" rx="1.5" fill="black" />
-                <rect opacity="0.5" x="13" y="5" width="3" height="14" rx="1.5" fill="black" />
-                <rect x="18" y="11" width="3" height="8" rx="1.5" fill="black" />
-                <rect x="3" y="13" width="3" height="6" rx="1.5" fill="black" />
-              </svg>
-            </span>
-            <!--end::Svg Icon-->
-            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5"><?= $karyawan["workshop"]["training"] + $karyawan["onsite"]["training"] ?></div>
-            <div class="fw-bold text-gray-100">Karyawan Training</div>
-          </div>
-          <!--end::Body-->
-        </a>
-        <!--end::Statistics Widget 5-->
-      </div>
-      <div class="col-xl-4">
-        <!--begin::Statistics Widget 5-->
-        <a href="#" class="card bg-danger hoverable card-xl-stretch mb-5 mb-xl-8">
-          <!--begin::Body-->
-          <div class="card-body">
-            <!--begin::Svg Icon | path: icons/duotune/arrows/arr070.svg-->
-            <span class="svg-icon svg-icon-gray-100 svg-icon-3x ms-n1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <rect x="8" y="9" width="3" height="10" rx="1.5" fill="black" />
-                <rect opacity="0.5" x="13" y="5" width="3" height="14" rx="1.5" fill="black" />
-                <rect x="18" y="11" width="3" height="8" rx="1.5" fill="black" />
-                <rect x="3" y="13" width="3" height="6" rx="1.5" fill="black" />
-              </svg>
-            </span>
-            <!--end::Svg Icon-->
-            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5"><?= $karyawan["workshop"]["resign"] + $karyawan["onsite"]["resign"] ?></div>
-            <div class="fw-bold text-gray-100">Karyawan Resign</div>
+            <div class="text-gray-100 fw-bolder fs-2 mb-2 mt-5">0</div>
+            <div class="fw-bold text-gray-100">Siswa Aktif</div>
           </div>
           <!--end::Body-->
         </a>
@@ -121,7 +55,7 @@
     <div class="row">
       <!--begin::Col-->
       <?php
-      $office = ["workshop", "onsite"];
+      $office = ["Akuntansi", "TAV"];
       foreach ($office as $place): ?>
         <div class="col-lg-6">
           <!--begin::Summary-->
@@ -130,13 +64,13 @@
             <div class="card-header mt-6">
               <!--begin::Card title-->
               <div class="card-title flex-column">
-                <h3 class="fw-bolder mb-1">Karyawan <?= ucfirst($place) ?></h3>
+                <h3 class="fw-bolder mb-1"><?= ucfirst($place) ?></h3>
                 <div class="fs-6 fw-bold text-gray-400">Harapan Jaya</div>
               </div>
               <!--end::Card title-->
               <!--begin::Card toolbar-->
               <div class="card-toolbar">
-                <a href="<?= base_url() ?>karyawan/<?= $place ?>" class="btn btn-light btn-sm">Lihat Data</a>
+                <a href="<?= base_url() ?><?= $place ?>" class="btn btn-light btn-sm">Lihat Data</a>
               </div>
               <!--end::Card toolbar-->
             </div>
@@ -148,10 +82,10 @@
                 <!--begin::Chart-->
                 <div class="position-relative d-flex flex-center h-175px w-175px me-15 mb-7">
                   <div class="position-absolute translate-middle start-50 top-50 d-flex flex-column flex-center text-center">
-                    <span class="fs-2qx fw-bolder"><?= $karyawan[$place]["aktif"] ?></span>
-                    <span class="fs-6 fw-bold text-gray-400">Karyawan Aktif</span>
+                    <span class="fs-2qx fw-bolder">0</span>
+                    <span class="fs-6 fw-bold text-gray-400">Aktif</span>
                   </div>
-                  <canvas id="cart_karyawan_<?= $place ?>"></canvas>
+                  <canvas id="cart_<?= $place ?>"></canvas>
                 </div>
                 <!--end::Chart-->
                 <!--begin::Labels-->
@@ -160,42 +94,42 @@
                   <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                     <div class="bullet bg-secondary me-3"></div>
                     <div class="text-gray-400">Aktif</div>
-                    <div class="ms-auto fw-bolder text-gray-700"><?= $karyawan[$place]["aktif"] ?></div>
+                    <div class="ms-auto fw-bolder text-gray-700">0</div>
                   </div>
                   <!--end::Label-->
                   <!--begin::Label-->
                   <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                     <div class="bullet bg-primary me-3"></div>
                     <div class="text-gray-400">Tetap</div>
-                    <div class="ms-auto fw-bolder text-gray-700"><?= $karyawan[$place]["tetap"] ?></div>
+                    <div class="ms-auto fw-bolder text-gray-700">0</div>
                   </div>
                   <!--end::Label-->
                   <!--begin::Label-->
                   <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                     <div class="bullet bg-dark me-3"></div>
                     <div class="text-gray-400">Kontrak</div>
-                    <div class="ms-auto fw-bolder text-gray-700"><?= $karyawan[$place]["kontrak"] ?></div>
+                    <div class="ms-auto fw-bolder text-gray-700">0</div>
                   </div>
                   <!--end::Label-->
                   <!--begin::Label-->
                   <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                     <div class="bullet bg-info me-3"></div>
                     <div class="text-gray-400">Training</div>
-                    <div class="ms-auto fw-bolder text-gray-700"><?= $karyawan[$place]["training"] ?></div>
+                    <div class="ms-auto fw-bolder text-gray-700">0</div>
                   </div>
                   <!--end::Label-->
                   <!--begin::Label-->
                   <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                     <div class="bullet bg-danger me-3"></div>
                     <div class="text-gray-400">Resign</div>
-                    <div class="ms-auto fw-bolder text-gray-700"><?= $karyawan[$place]["resign"] ?></div>
+                    <div class="ms-auto fw-bolder text-gray-700">0</div>
                   </div>
                   <!--end::Label-->
                   <!--begin::Label-->
                   <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                     <div class="bullet bg-gray me-3"></div>
                     <div class="text-gray-400">Total</div>
-                    <div class="ms-auto fw-bolder text-gray-700"><?= $karyawan[$place]["all"] ?></div>
+                    <div class="ms-auto fw-bolder text-gray-700">0</div>
                   </div>
                   <!--end::Label-->
                 </div>
@@ -278,59 +212,6 @@
 <script>
   let chartInstance; // Simpan instance Chart di luar fungsi
 
-  function chart_karyawan() {
-    // Jika ada chart sebelumnya, destroy dulu sebelum membuat yang baru
-    if (chartInstance) {
-      chartInstance.destroy();
-    }
-
-    const chart_karyawan = ["workshop", "onsite"];
-
-    chart_karyawan.forEach(element => {
-      let tetap, kontrak, resign;
-
-      if (element === "workshop") {
-        tetap = <?= $karyawan['workshop']["tetap"] ?>;
-        kontrak = <?= $karyawan['workshop']["kontrak"] ?>;
-        training = <?= $karyawan['workshop']["training"] ?>;
-        resign = <?= $karyawan['workshop']["resign"] ?>;
-      } else {
-        tetap = <?= $karyawan['onsite']["tetap"] ?>;
-        kontrak = <?= $karyawan['onsite']["kontrak"] ?>;
-        training = <?= $karyawan['onsite']["training"] ?>;
-        resign = <?= $karyawan['onsite']["resign"] ?>;
-      }
-
-      const ctx = document.getElementById('cart_karyawan_' + element);
-
-      // Buat chart baru dan simpan instance-nya
-      chartInstance = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-          labels: ['Tetap', 'Kontrak', 'Trainng', 'Resign'],
-          datasets: [{
-            data: [tetap, kontrak, training, resign],
-            backgroundColor: [
-              '#009EF7', // tetap
-              '#131628', // kontrak
-              '#7239EA', // resign
-              '#F1416C', // resign
-            ],
-            borderWidth: 0
-          }]
-        },
-        options: {
-          plugins: {
-            legend: {
-              display: false
-            }
-          },
-          cutout: '80%',
-        }
-      });
-    });
-  }
-
   function get_notif() {
     $.ajax({
       url: '<?= base_url('dashboard/get_data?act=getnotif') ?>',
@@ -351,37 +232,37 @@
 
   $(document).ready(function() {
     get_notif();
-    chart_karyawan();
+    chart_);
 
-    $('#form_notif').on('submit', function(evt) {
-      evt.preventDefault();
-      var formdata = new FormData($(this)[0]);
-      $.ajax({
-        url: '<?= base_url() ?>dashboard/proses?act=update_notif',
-        type: 'POST',
-        data: formdata,
-        processData: false,
-        contentType: false,
-        dataType: 'JSON',
-        success: function(result) {
-          if (result.update == true) {
-            $("#modalnotification").modal("hide");
-          } else {
-            $("#modalnotification #notif-error").html("Gagal menandai.");
-          }
-        },
-        error: function(result) {
-          // alert(result);
+  $('#form_notif').on('submit', function(evt) {
+    evt.preventDefault();
+    var formdata = new FormData($(this)[0]);
+    $.ajax({
+      url: '<?= base_url() ?>dashboard/proses?act=update_notif',
+      type: 'POST',
+      data: formdata,
+      processData: false,
+      contentType: false,
+      dataType: 'JSON',
+      success: function(result) {
+        if (result.update == true) {
+          $("#modalnotification").modal("hide");
+        } else {
+          $("#modalnotification #notif-error").html("Gagal menandai.");
         }
-      });
+      },
+      error: function(result) {
+        // alert(result);
+      }
     });
+  });
 
-    $('#modalnotification').on('hide.bs.modal', function(e) {
-      // Code to execute when the modal is about to close
-      $("#modalnotification .message").html("");
-      $("#modalnotification #notif-error").html("");
-      // e.g., clear form fields, save data, etc.
-    });
+  $('#modalnotification').on('hide.bs.modal', function(e) {
+    // Code to execute when the modal is about to close
+    $("#modalnotification .message").html("");
+    $("#modalnotification #notif-error").html("");
+    // e.g., clear form fields, save data, etc.
+  });
   });
 </script>
 <?= $this->endSection() ?>

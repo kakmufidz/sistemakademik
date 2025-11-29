@@ -6,7 +6,7 @@ use App\Models\Karyawan as ModelsKaryawan;
 use App\Models\Mlog;
 use App\Models\Users;
 
-class Karyawan extends BaseController
+class Biodata extends BaseController
 {
   function __construct()
   {
@@ -18,10 +18,10 @@ class Karyawan extends BaseController
 
   public function index()
   {
-    return redirect()->to(base_url("karyawan/workshop"));
+    return redirect()->to(base_url("biodata/siswa"));
   }
 
-  public function workshop()
+  public function siswa()
   {
     // Cek session
     if ($this->cek_session() !== true) {
@@ -30,13 +30,13 @@ class Karyawan extends BaseController
     $musers = new Users();
     $biodata = $musers->biodata();
     $data = [
-      'page_title' => "Data Karyawan Workshop",
+      'page_title' => "Data Siswa",
       'biodata' => $biodata,
     ];
-    return view('hrd/karyawan/karyawan', $data);
+    return view('master/siswa/list_data', $data);
   }
 
-  public function onsite()
+  public function wali_siswa()
   {
     // Cek session
     if ($this->cek_session() !== true) {
@@ -45,11 +45,27 @@ class Karyawan extends BaseController
     $musers = new Users();
     $biodata = $musers->biodata();
     $data = [
-      'page_title' => "Data Karyawan Onsite",
+      'page_title' => "Data Wali Siswa",
       'biodata' => $biodata,
     ];
-    return view('hrd/karyawan/karyawan', $data);
+    return view('master/wali_siswa/list_data', $data);
   }
+
+  public function guru()
+  {
+    // Cek session
+    if ($this->cek_session() !== true) {
+      return $this->cek_session(); // Menghentikan eksekusi dan melakukan redirect
+    }
+    $musers = new Users();
+    $biodata = $musers->biodata();
+    $data = [
+      'page_title' => "Data Guru",
+      'biodata' => $biodata,
+    ];
+    return view('master/guru/list_data', $data);
+  }
+
 
   public function detail()
   {

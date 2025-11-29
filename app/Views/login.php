@@ -6,15 +6,15 @@
 	<base href="">
 	<title><?= $page_title ?></title>
 	<meta charset="utf-8" />
-	<meta name="description" content="Smart CRM PT. Harapan Jaya Anugrah." />
-	<meta name="keywords" content="CRM, Customer Relation Manager, Sistem, Informasi, Aplikasi, Website, Bengkel, Harapan Jaya" />
+	<meta name="description" content="SISKA adalah platform manajemen sekolah terpadu yang dirancang untuk mempermudah pengelolaan akademik, administrasi, dan komunikasi di lingkungan sekolah. Dengan tampilan antarmuka yang ramah pengguna dan teknologi berbasis web, SISKA membantu sekolah meningkatkan efisiensi kerja, transparansi informasi, dan kualitas layanan pendidikan." />
+	<meta name="keywords" content="Sistem Informasi Akademik Sekolah, Aplikasi Manajemen Sekolah, Software Administrasi Sekolah, Platform Sekolah Digital, SISKA Akademik (Branding), Aplikasi Sekolah Terpadu" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content="<?= $page_title ?>" />
-	<meta property="og:url" content="https://hjgroup.co.id/" />
-	<meta property="og:site_name" content="Harapan Jaya | Bengkel Harapan Jaya" />
-	<link rel="canonical" href="https://hjgroup.co.id/" />
+	<meta property="og:url" content="https://digitalinsource.web.id/" />
+	<meta property="og:site_name" content="SISKA | Sistem Informasi Akademik Sekolah" />
+	<link rel="canonical" href="https://digitalinsource.web.id/" />
 	<link rel="shortcut icon" href="<?= base_url() ?>assets/media/logos/android-chrome-512x512.png" />
 	<!--begin::Fonts-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />

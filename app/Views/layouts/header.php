@@ -3,7 +3,7 @@
     <div class="header-brand">
         <!--begin::Logo-->
         <a href="<?= base_url() ?>dashboard">
-            <img alt="Logo" src="<?= base_url() ?>assets/media/logos/logo-white.png" class="h-40px h-lg-40px" />
+            <img alt="Logo" src="<?= base_url() ?>assets/media/logos/logo-siska-whbg.png" class="h-40px h-lg-40px" />
         </a>
         <!--end::Logo-->
         <!--begin::Aside minimize-->
@@ -76,7 +76,7 @@
                 <!--begin::Action wrapper-->
                 <div class="d-flex align-items-center">
                     <!--begin::Label-->
-                    <span class="fs-3 text-gray-700 pe-4 text-nowrap d-none d-xxl-block">Selamat <?= waktu() ?> <b><?= $biodata['user_nama_depan'] . " " . $biodata['user_nama_belakang'] ?></b></span>
+                    <span class="fs-3 text-gray-700 pe-4 text-nowrap d-none d-xxl-block">Selamat <?= waktu() ?> <b><?= $biodata['nama'] ?></b></span>
                     <!--end::Label-->
                 </div>
                 <!--end::Action wrapper-->
